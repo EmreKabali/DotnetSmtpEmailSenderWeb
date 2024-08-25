@@ -1,0 +1,71 @@
+﻿@page
+@model EmailTestWebApp.Pages.WebtestModel
+@{
+    ViewData["Title"] = "Test Email";
+}
+
+
+
+<div class="row">
+
+    @if (ViewData["ErrorMessage"] != null)
+    {
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            @ViewData["ErrorMessage"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+    <form method="post" >
+        <!-- String Input 1 -->
+        <div class="mb-3">
+            <label for="inputString1" class="form-label">Auth Email</label>
+            <input type="email" asp-for="Email.UserMail" class="form-control" id="inputString1" required>
+            <span asp-validation-for="Email.UserMail" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label for="inputString1" class="form-label">Auth Password</label>
+            <input type="password" asp-for="Email.UserPassword" class="form-control" required>
+            <span asp-validation-for="Email.UserPassword" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label for="inputString1" class="form-label">Host</label>
+            <input type="text" asp-for="Email.Host" class="form-control" required>
+            <span asp-validation-for="Email.Host" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label for="inputString1" class="form-label">Port</label>
+            <input type="number" asp-for="Email.Port" class="form-control" required>
+            <span asp-validation-for="Email.Port" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label for="inputString1" class="form-label">From Email</label>
+            <input type="text" asp-for="Email.From" class="form-control" required>
+            <span asp-validation-for="Email.From" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label for="inputString1" class="form-label">To Email</label>
+            <input type="text" asp-for="Email.To" class="form-control" required>
+            <span asp-validation-for="Email.To" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label for="inputString1" class="form-label">Mail Subject</label>
+            <input type="text" asp-for="Email.Subject" class="form-control" required>
+            <span asp-validation-for="Email.Subject" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label for="inputDescription" class="form-label">Mail Body</label>
+            <textarea class="form-control" asp-for="Email.Body" rows="3" placeholder="Enter a description"></textarea>
+            <span asp-validation-for="Email.Body" class="text-danger"></span>
+        </div>
+
+
+        <!-- Submit Button -->
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
